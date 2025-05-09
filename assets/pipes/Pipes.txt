@@ -1,0 +1,292 @@
+Pipes.png
+size: 64, 1408
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+a000
+  rotate: false
+  xy: 0, 0
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a001
+  rotate: false
+  xy: 32, 0
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a002
+  rotate: false
+  xy: 0, 48
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a003
+  rotate: false
+  xy: 32, 48
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a004
+  rotate: false
+  xy: 0, 96
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a005
+  rotate: false
+  xy: 32, 96
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a006
+  rotate: false
+  xy: 0, 144
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+a007
+  rotate: false
+  xy: 32, 144
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b000
+  rotate: false
+  xy: 0, 192
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b001
+  rotate: false
+  xy: 32, 192
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b002
+  rotate: false
+  xy: 0, 240
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b003
+  rotate: false
+  xy: 32, 240
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b004
+  rotate: false
+  xy: 0, 288
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b005
+  rotate: false
+  xy: 32, 288
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b006
+  rotate: false
+  xy: 0, 336
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+b007
+  rotate: false
+  xy: 32, 336
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c000
+  rotate: false
+  xy: 0, 384
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c001
+  rotate: false
+  xy: 32, 384
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c002
+  rotate: false
+  xy: 0, 432
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c003
+  rotate: false
+  xy: 32, 432
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c004
+  rotate: false
+  xy: 0, 480
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c005
+  rotate: false
+  xy: 32, 480
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c006
+  rotate: false
+  xy: 0, 528
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+c007
+  rotate: false
+  xy: 32, 528
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d000
+  rotate: false
+  xy: 0, 576
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d001
+  rotate: false
+  xy: 32, 576
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d002
+  rotate: false
+  xy: 0, 624
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d003
+  rotate: false
+  xy: 32, 624
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d004
+  rotate: false
+  xy: 0, 672
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d005
+  rotate: false
+  xy: 32, 672
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d006
+  rotate: false
+  xy: 0, 720
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+d007
+  rotate: false
+  xy: 32, 720
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+pipe-green
+  rotate: false
+  xy: 0, 768
+  size: 52, 320
+  orig: 52, 320
+  offset: 0, 0
+  index: -1
+tile000
+  rotate: false
+  xy: 0, 1088
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile001
+  rotate: false
+  xy: 32, 1088
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile002
+  rotate: false
+  xy: 0, 1168
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile003
+  rotate: false
+  xy: 32, 1168
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile004
+  rotate: false
+  xy: 0, 1248
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile005
+  rotate: false
+  xy: 32, 1248
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile006
+  rotate: false
+  xy: 0, 1328
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1
+tile007
+  rotate: false
+  xy: 32, 1328
+  size: 32, 80
+  orig: 32, 80
+  offset: 0, 0
+  index: -1

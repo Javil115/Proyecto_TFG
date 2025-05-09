@@ -1,0 +1,152 @@
+player.png
+size: 117, 249
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BlackSupercat-down
+  rotate: false
+  xy: 0, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+BlackSupercat-mid
+  rotate: false
+  xy: 32, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+BlackSupercat-up
+  rotate: false
+  xy: 64, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+dog-down
+  rotate: false
+  xy: 0, 32
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+dog-mid
+  rotate: false
+  xy: 33, 32
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+dog-up
+  rotate: false
+  xy: 66, 32
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+HalloweenCat-down
+  rotate: false
+  xy: 0, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+HalloweenCat-mid
+  rotate: false
+  xy: 32, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+HalloweenCat-up
+  rotate: false
+  xy: 64, 58
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+OrangeSupercat-down
+  rotate: false
+  xy: 0, 122
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+OrangeSupercat-mid
+  rotate: false
+  xy: 32, 122
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+OrangeSupercat-up
+  rotate: false
+  xy: 64, 122
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+vulture-down
+  rotate: false
+  xy: 0, 154
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+vulture-mid
+  rotate: false
+  xy: 39, 154
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+vulture-up
+  rotate: false
+  xy: 78, 154
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+WhiteSupercat-down
+  rotate: false
+  xy: 0, 193
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+WhiteSupercat-mid
+  rotate: false
+  xy: 32, 193
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+WhiteSupercat-up
+  rotate: false
+  xy: 64, 193
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+yellowbird-downflap
+  rotate: false
+  xy: 0, 225
+  size: 34, 24
+  orig: 34, 24
+  offset: 0, 0
+  index: -1
+yellowbird-midflap
+  rotate: false
+  xy: 34, 225
+  size: 34, 24
+  orig: 34, 24
+  offset: 0, 0
+  index: -1
+yellowbird-upflap
+  rotate: false
+  xy: 68, 225
+  size: 34, 24
+  orig: 34, 24
+  offset: 0, 0
+  index: -1
