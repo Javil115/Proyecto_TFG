@@ -12,14 +12,12 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class SettingsScreen implements Screen {
 
-    private Game game;
-    private SpriteBatch batch;
-    private Stage stage;
-    private Skin skin;
-    private TextButton backButton;
+    private final SpriteBatch batch;
+    private final Stage stage;
+    private final Skin skin;
+    private final TextButton backButton;
 
     public SettingsScreen(Game game) {
-        this.game = game;
         batch = new SpriteBatch();
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
