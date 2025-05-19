@@ -4,6 +4,8 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.util.HashMap;
+
 public class AssetsManager {
 
     public static AssetManager manager;
@@ -28,6 +30,7 @@ public class AssetsManager {
     // Pipes
     public static TextureRegion[] pipes;
     public static TextureRegion pipeGreen;
+    public static HashMap<String, TextureRegion> namedPipes;
 
     public static void load() {
         manager = new AssetManager();
@@ -92,13 +95,17 @@ public class AssetsManager {
         botonInformacion = new TextureRegion(buttonsTexture, 214, 1351, 620, 599);
 
         Texture pipesTexture = manager.get("pipes/Pipes.png", Texture.class);
-        pipes = new TextureRegion[24];
-        for (int i = 0; i < 24; i++) {
+
+        namedPipes = new HashMap<>();
+        for (int i = 0; i <= 7; i++) {
+            String name = String.format("tile00%d", i);
             int x = (i % 2) * 32;
-            int y = (i / 2) * 48;
-            pipes[i] = new TextureRegion(pipesTexture, x, y, 32, 48);
+            int y = 1088 + (i / 2) * 80;
+            namedPipes.put(name, new TextureRegion(pipesTexture, x, y, 32, 80));
         }
+
         pipeGreen = new TextureRegion(pipesTexture, 0, 768, 52, 320);
+        namedPipes.put("pipe-green", pipeGreen);
     }
 
     public static TextureRegion getBackground(int fondoIndex) {
@@ -159,33 +166,7 @@ public class AssetsManager {
     }
 
     public static TextureRegion getPipe(String pipeName) {
-        switch (pipeName) {
-            case "pipe0": return pipes[0];
-            case "pipe1": return pipes[1];
-            case "pipe2": return pipes[2];
-            case "pipe3": return pipes[3];
-            case "pipe4": return pipes[4];
-            case "pipe5": return pipes[5];
-            case "pipe6": return pipes[6];
-            case "pipe7": return pipes[7];
-            case "pipe8": return pipes[8];
-            case "pipe9": return pipes[9];
-            case "pipe10": return pipes[10];
-            case "pipe11": return pipes[11];
-            case "pipe12": return pipes[12];
-            case "pipe13": return pipes[13];
-            case "pipe14": return pipes[14];
-            case "pipe15": return pipes[15];
-            case "pipe16": return pipes[16];
-            case "pipe17": return pipes[17];
-            case "pipe18": return pipes[18];
-            case "pipe19": return pipes[19];
-            case "pipe20": return pipes[20];
-            case "pipe21": return pipes[21];
-            case "pipe22": return pipes[22];
-            case "pipe23": return pipes[23];
-            default: return pipeGreen;
-        }
+        return namedPipes.getOrDefault(pipeName, pipeGreen);
     }
 
     public static void dispose() {

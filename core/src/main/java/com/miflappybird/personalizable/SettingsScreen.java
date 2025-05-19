@@ -4,38 +4,45 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class SettingsScreen implements Screen {
 
+    private final Game game;
     private final SpriteBatch batch;
-    private final Stage stage;
-    private final Skin skin;
-    private final TextButton backButton;
+
+    private final TextureRegion background;
+    private final TextureRegion overlayImage;
+    private final TextureRegion backButton;
+
+    private float backButtonX, backButtonY;
+    private float backButtonWidth, backButtonHeight;
+
+    private float overlayX, overlayY;
+    private float overlayWidth, overlayHeight;
 
     public SettingsScreen(Game game) {
-        batch = new SpriteBatch();
-        stage = new Stage(new ScreenViewport());
-        Gdx.input.setInputProcessor(stage);
+        this.game = game;
+        this.batch = new SpriteBatch();
 
-        skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
+        // Fondo y capa intermedia
+        background = AssetsManager.getBackground(13);
+        overlayImage = AssetsManager.getButton("fondoPausaJuego");
 
-        backButton = new TextButton("Back", skin);
-        backButton.setSize(200, 50);
-        backButton.setPosition(100, 100);
-        stage.addActor(backButton);
+        float overlayScale = 4.0f;
+        overlayWidth = overlayImage.getRegionWidth() * overlayScale;
+        overlayHeight = overlayImage.getRegionHeight() * overlayScale;
+        overlayX = (Gdx.graphics.getWidth() - overlayWidth) / 2f;
+        overlayY = (Gdx.graphics.getHeight() - overlayHeight) / 2f;
 
-        backButton.addListener(event -> {
-            if (backButton.isPressed()) {
-                game.setScreen(new MainMenuScreen(game));
-                return true;
-            }
-            return false;
-        });
+        // Botón gráfico "Back"
+        backButton = AssetsManager.getButton("botonSalir");
+        float scale = 0.8f;
+        backButtonWidth = backButton.getRegionWidth() * scale;
+        backButtonHeight = backButton.getRegionHeight() * scale;
+        backButtonX = 20;
+        backButtonY = Gdx.graphics.getHeight() - backButtonHeight - 20;
     }
 
     @Override
@@ -44,28 +51,39 @@ public class SettingsScreen implements Screen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0, 0, 0, 1);
-        stage.act(delta);
-        stage.draw();
+
+        batch.begin();
+
+        // Fondo
+        batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        // Capa superpuesta
+        batch.draw(overlayImage, overlayX, overlayY, overlayWidth, overlayHeight);
+
+        // Botón volver
+        batch.draw(backButton, backButtonX, backButtonY, backButtonWidth, backButtonHeight);
+
+        batch.end();
+
+        // Manejo del botón volver
+        if (Gdx.input.justTouched()) {
+            float x = Gdx.input.getX();
+            float y = Gdx.graphics.getHeight() - Gdx.input.getY();
+
+            if (x >= backButtonX && x <= backButtonX + backButtonWidth &&
+                y >= backButtonY && y <= backButtonY + backButtonHeight) {
+                game.setScreen(new MainMenuScreen(game));
+            }
+        }
     }
 
-    @Override
-    public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true);
-    }
-
-    @Override
-    public void pause() {}
-
-    @Override
-    public void resume() {}
-
-    @Override
-    public void hide() {}
+    @Override public void resize(int width, int height) {}
+    @Override public void pause() {}
+    @Override public void resume() {}
+    @Override public void hide() {}
 
     @Override
     public void dispose() {
-        stage.dispose();
-        skin.dispose();
         batch.dispose();
     }
 }

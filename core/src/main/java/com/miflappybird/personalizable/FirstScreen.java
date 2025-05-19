@@ -25,7 +25,8 @@ public class FirstScreen implements Screen {
     private final TextureRegion pauseWindow;
     private final TextureRegion continueButton;
     private final TextureRegion backButton;
-    private final TextureRegion pipeTexture;
+    private final TextureRegion pipeTopTexture;
+    private final TextureRegion pipeBottomTexture;
     private final TextureRegion botonJugarDeNuevo;
 
     private float playerY;
@@ -38,7 +39,7 @@ public class FirstScreen implements Screen {
 
     private final ArrayList<Pipe> pipes;
     private float pipeSpawnTimer;
-    private final float pipeSpawnInterval = 2f;
+    private final float pipeSpawnInterval = 2.5f;
     private final Random random;
 
     public FirstScreen(Game game) {
@@ -62,7 +63,10 @@ public class FirstScreen implements Screen {
         pauseWindow = AssetsManager.getButton("fondoPausaJuego");
         continueButton = AssetsManager.getButton("botonSeguir");
         backButton = AssetsManager.getButton("botonSalirLetras");
-        pipeTexture = AssetsManager.getPipe("pipe11");
+
+        pipeTopTexture = AssetsManager.getPipe("tile004");
+        pipeBottomTexture = AssetsManager.getPipe("tile004");
+
         botonJugarDeNuevo = AssetsManager.getButton("botonJugarDeNuevo");
 
         pipes = new ArrayList<>();
@@ -82,18 +86,21 @@ public class FirstScreen implements Screen {
 
         int baseHeight = (int)(base.getRegionHeight() * ((float)Gdx.graphics.getWidth() / base.getRegionWidth()));
         int baseY = 0;
-        batch.draw(base, 0, baseY, Gdx.graphics.getWidth(), baseHeight);
 
         if (!paused && !gameOver) {
             pipeSpawnTimer += delta;
             if (pipeSpawnTimer >= pipeSpawnInterval) {
-                float gap = 800;
+                float gap = 600;
                 float minPipeY = baseHeight + 100;
                 float maxPipeY = Gdx.graphics.getHeight() - gap - 100;
                 float gapY = minPipeY + random.nextInt((int)(maxPipeY - minPipeY));
 
-                pipes.add(new Pipe(Gdx.graphics.getWidth(), gapY - pipeTexture.getRegionHeight(), pipeTexture)); // upper
-                pipes.add(new Pipe(Gdx.graphics.getWidth(), gapY + gap, pipeTexture)); // lower
+                float pipeWidth = 190;
+                float pipeHeight = 1300;
+
+                pipes.add(new Pipe(Gdx.graphics.getWidth(), gapY - pipeHeight, pipeWidth, pipeHeight, pipeTopTexture));
+                pipes.add(new Pipe(Gdx.graphics.getWidth(), gapY + gap, pipeWidth, pipeHeight, pipeBottomTexture));
+
                 pipeSpawnTimer = 0f;
             }
 
@@ -117,8 +124,10 @@ public class FirstScreen implements Screen {
             }
         }
 
+        batch.draw(base, 0, baseY, Gdx.graphics.getWidth(), baseHeight); // DIBUJAR LA BASE AL FINAL
+
         TextureRegion currentPlayer = velocity > 0 ? playerUp : (playerY <= baseHeight ? playerDown : playerMid);
-        batch.draw(currentPlayer, 350, playerY, 154, 138);
+        batch.draw(currentPlayer, 350, playerY, 184, 168);
 
         float scale = 0.3f;
         float pauseWidth = pauseButton.getRegionWidth() * scale;
@@ -169,8 +178,9 @@ public class FirstScreen implements Screen {
         if (!paused && !gameOver) {
             velocity += gravity;
             playerY += velocity;
-            if (playerY <= baseHeight) {
-                playerY = baseHeight;
+            int baseHeightCheck = (int)(base.getRegionHeight() * ((float)Gdx.graphics.getWidth() / base.getRegionWidth()));
+            if (playerY <= baseHeightCheck) {
+                playerY = baseHeightCheck;
                 velocity = 0;
             }
             if (playerY + playerMid.getRegionHeight() >= Gdx.graphics.getHeight()) {
@@ -239,14 +249,15 @@ public class FirstScreen implements Screen {
 
 class Pipe {
     private float x, y;
-    private final float width = 52;
-    private final float height = 320;
-    private final float speed = 200;
+    private float width, height;
+    private final float speed = 300;
     private final TextureRegion texture;
 
-    public Pipe(float x, float y, TextureRegion texture) {
+    public Pipe(float x, float y, float width, float height, TextureRegion texture) {
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
         this.texture = texture;
     }
 
