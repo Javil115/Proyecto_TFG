@@ -15,6 +15,7 @@ import java.util.Random;
 public class FirstScreen implements Screen {
 
     private final Game game;
+    private final ScoreService scoreService;
     private final SpriteBatch batch;
     private final TextureRegion background;
     private final TextureRegion base;
@@ -42,8 +43,9 @@ public class FirstScreen implements Screen {
     private final float pipeSpawnInterval = 2.5f;
     private final Random random;
 
-    public FirstScreen(Game game) {
+    public FirstScreen(Game game, ScoreService scoreService) {
         this.game = game;
+        this.scoreService = scoreService;
         batch = new SpriteBatch();
         playerY = 300;
         velocity = 0;
@@ -53,25 +55,48 @@ public class FirstScreen implements Screen {
         paused = false;
         gameOver = false;
 
-        background = AssetsManager.getBackground(13);
-        base = AssetsManager.getBackground(15);
-        playerDown = AssetsManager.getPlayer("blackSupercatMid");
-        playerMid = AssetsManager.getPlayer("blackSupercatDown");
-        playerUp = AssetsManager.getPlayer("blackSupercatUp");
+        SettingsService settingsService = new SettingsService();
+
+        String playerName = settingsService.getPlayer();
+        String pipeName = settingsService.getPipe();
+        String backgroundName = settingsService.getBackground();
+        String baseName = getBaseForBackground(backgroundName);
+
+        background = AssetsManager.getBackgroundByName(backgroundName);
+        base = AssetsManager.getBaseByName(baseName);
+        playerDown = AssetsManager.getPlayer(playerName + "Mid");
+        playerMid = AssetsManager.getPlayer(playerName + "Down");
+        playerUp = AssetsManager.getPlayer(playerName + "Up");
 
         pauseButton = AssetsManager.getButton("botonPausa");
         pauseWindow = AssetsManager.getButton("fondoPausaJuego");
         continueButton = AssetsManager.getButton("botonSeguir");
         backButton = AssetsManager.getButton("botonSalirLetras");
 
-        pipeTopTexture = AssetsManager.getPipe("tile004");
-        pipeBottomTexture = AssetsManager.getPipe("tile004");
+        pipeTopTexture = AssetsManager.getPipe(pipeName);
+        pipeBottomTexture = AssetsManager.getPipe(pipeName);
 
         botonJugarDeNuevo = AssetsManager.getButton("botonJugarDeNuevo");
 
         pipes = new ArrayList<>();
         pipeSpawnTimer = 0f;
         random = new Random();
+    }
+
+    private String getBaseForBackground(String backgroundName) {
+        switch (backgroundName) {
+            case "background-day": return "base";
+            case "background-moonnight": return "base_blue";
+            case "background-afternoon": return "base_orange";
+            case "background-morning": return "base_morning";
+            case "background-futureday": return "base";
+            case "background-futurenight": return "base_blue";
+            case "background-starwars1": return "base_starwars_colors";
+            case "background-starwars2": return "base_blue";
+            case "background-moon": return "base_blue_gray";
+            case "background-neonsunset": return "base_neon";
+            default: return "base";
+        }
     }
 
     @Override
@@ -110,9 +135,23 @@ public class FirstScreen implements Screen {
                 pipe.update(delta);
                 batch.draw(pipe.getTexture(), pipe.getX(), pipe.getY(), pipe.getWidth(), pipe.getHeight());
 
-                if (pipe.collides(350, playerY, 154, 138)) {
-                    gameOver = true;
+                // Incrementar score si se ha pasado la tubería
+                if (!pipe.isScored() && pipe.getX() + pipe.getWidth() < 350) {
+                    score++;
+                    pipe.setScored(true);
+                    System.out.println("Score incrementado: " + score);
                 }
+
+
+                if (pipe.collides(350, playerY, 154, 138)) {
+                    if (!gameOver) {
+                        System.out.println("Score actual: " + score); // Debug para confirmar el valor antes de guardar
+                        scoreService.addScore(score); // Guarda la puntuación
+                        gameOver = true;
+                    }
+                }
+
+
 
                 if (pipe.getX() + pipe.getWidth() < 0) {
                     it.remove();
@@ -129,7 +168,7 @@ public class FirstScreen implements Screen {
         TextureRegion currentPlayer = velocity > 0 ? playerUp : (playerY <= baseHeight ? playerDown : playerMid);
         batch.draw(currentPlayer, 350, playerY, 184, 168);
 
-        float scale = 0.3f;
+        float scale = 0.7f;
         float pauseWidth = pauseButton.getRegionWidth() * scale;
         float pauseHeight = pauseButton.getRegionHeight() * scale;
         float pauseX = Gdx.graphics.getWidth() - pauseWidth - 20;
@@ -164,13 +203,13 @@ public class FirstScreen implements Screen {
                 if (checkButtonPressed(continueButton, true, x, y)) {
                     paused = false;
                 } else if (checkButtonPressed(backButton, true, x, y)) {
-                    game.setScreen(new MainMenuScreen(game));
+                    game.setScreen(new MainMenuScreen(game, scoreService));
                 }
             } else if (gameOver) {
                 if (checkButtonPressed(botonJugarDeNuevo, false, x, y)) {
-                    game.setScreen(new FirstScreen(game));
+                    game.setScreen(new FirstScreen(game, scoreService));
                 } else if (checkButtonPressed(backButton, false, x, y)) {
-                    game.setScreen(new MainMenuScreen(game));
+                    game.setScreen(new MainMenuScreen(game, scoreService));
                 }
             }
         }
@@ -268,6 +307,16 @@ class Pipe {
     public boolean collides(float px, float py, float pw, float ph) {
         return px < x + width && px + pw > x && py < y + height && py + ph > y;
     }
+    private boolean scored = false;
+
+    public boolean isScored() {
+        return scored;
+    }
+
+    public void setScored(boolean scored) {
+        this.scored = scored;
+    }
+
 
     public float getX() { return x; }
     public float getY() { return y; }

@@ -1,0 +1,138 @@
+Buttons.png
+size: 1567, 1816
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boton jugar de nuevo
+  rotate: false
+  xy: 808, 181
+  size: 430, 227
+  orig: 430, 227
+  offset: 0, 0
+  index: -1
+Boton Jugar
+  rotate: false
+  xy: 323, 685
+  size: 755, 282
+  orig: 755, 282
+  offset: 0, 0
+  index: -1
+Boton Marcador
+  rotate: false
+  xy: 755, 967
+  size: 754, 287
+  orig: 754, 287
+  offset: 0, 0
+  index: -1
+Boton No
+  rotate: false
+  xy: 1200, 408
+  size: 336, 277
+  orig: 336, 277
+  offset: 0, 0
+  index: -1
+Boton Opciones
+  rotate: false
+  xy: 0, 967
+  size: 755, 282
+  orig: 755, 282
+  offset: 0, 0
+  index: -1
+boton pausa
+  rotate: false
+  xy: 201, 181
+  size: 184, 222
+  orig: 184, 222
+  offset: 0, 0
+  index: -1
+Boton seguir
+  rotate: false
+  xy: 385, 181
+  size: 423, 226
+  orig: 423, 226
+  offset: 0, 0
+  index: -1
+Boton Si
+  rotate: false
+  xy: 0, 685
+  size: 323, 277
+  orig: 323, 277
+  offset: 0, 0
+  index: -1
+boton x
+  rotate: false
+  xy: 0, 181
+  size: 201, 211
+  orig: 201, 211
+  offset: 0, 0
+  index: -1
+Boton_salir-removebg-preview
+  rotate: false
+  xy: 910, 1254
+  size: 249, 447
+  orig: 249, 447
+  offset: 0, 0
+  index: -1
+Boton_salir_letras-removebg-preview
+  rotate: false
+  xy: 0, 408
+  size: 417, 231
+  orig: 417, 231
+  offset: 0, 0
+  index: -1
+Botón Información
+  rotate: false
+  xy: 498, 1254
+  size: 412, 410
+  orig: 412, 410
+  offset: 0, 0
+  index: -1
+cj-removebg-preview
+  rotate: false
+  xy: 417, 408
+  size: 783, 273
+  orig: 783, 273
+  offset: 0, 0
+  index: -1
+Fondo borrar
+  rotate: false
+  xy: 1159, 1254
+  size: 340, 562
+  orig: 340, 562
+  offset: 0, 0
+  index: -1
+Fondo_pausa_juego-removebg-preview
+  rotate: false
+  xy: 0, 1254
+  size: 214, 330
+  orig: 214, 330
+  offset: 0, 0
+  index: -1
+Icono basura
+  rotate: false
+  xy: 214, 1254
+  size: 284, 361
+  orig: 284, 361
+  offset: 0, 0
+  index: -1
+image-removebg-preview
+  rotate: false
+  xy: 480, 0
+  size: 599, 179
+  orig: 599, 179
+  offset: 0, 0
+  index: -1
+image
+  rotate: false
+  xy: 0, 0
+  size: 480, 145
+  orig: 480, 145
+  offset: 0, 0
+  index: -1
+MejoresPuntuacionesTitle
+  rotate: false
+  xy: 1079, 0
+  size: 488, 181
+  orig: 488, 181
+  offset: 0, 0
+  index: -1

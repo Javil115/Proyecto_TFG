@@ -10,9 +10,14 @@ public class AssetsManager {
 
     public static AssetManager manager;
 
-    public static TextureRegion fondo1, fondo2, fondo3, fondo4, fondo5, fondo6, fondo7, fondo8;
-    public static TextureRegion fondo9, fondo10, fondo11, fondo12;
-    public static TextureRegion backgroundDay, demo, base;
+    public static TextureRegion backgroundAfternoon, backgroundDay, backgroundFutureDay, backgroundFutureNight,
+        backgroundMoon, backgroundMoonNight, backgroundMorning, backgroundNeonSunset,
+        backgroundStarWars1, backgroundStarWars2;
+
+    public static TextureRegion base, baseBlue, baseBlueGray, baseMorning,
+        baseNeon, baseOrange, baseStarWarsColors;
+
+    public static TextureRegion demo;
 
     // Player Animations
     public static TextureRegion blackSupercatDown, blackSupercatMid, blackSupercatUp;
@@ -24,8 +29,12 @@ public class AssetsManager {
     public static TextureRegion yellowbirdDown, yellowbirdMid, yellowbirdUp;
 
     public static TextureRegion botonJugar, botonMarcador, botonOpciones, botonPausa;
-    public static TextureRegion botonSeguir, botonSalir, botonSalirLetras, botonStart;
+    public static TextureRegion botonSeguir, botonSalir, botonSalirLetras;
     public static TextureRegion botonInformacion, fondoPausaJuego, botonX, botonJugarDeNuevo;
+    public static TextureRegion botonSi, botonNo;
+    public static TextureRegion cambiarEscenario, cambiarJugador, cambiarTuberia;
+    public static TextureRegion mejoresPuntuacionesTitle, fondoBorrar, iconoBasura;
+
 
     // Pipes
     public static TextureRegion[] pipes;
@@ -41,20 +50,26 @@ public class AssetsManager {
         manager.finishLoading();
 
         Texture fondosTexture = manager.get("backgrounds/fondos_fb.png", Texture.class);
-        fondo1 = new TextureRegion(fondosTexture, 1104, 0, 576, 324);
-        fondo2 = new TextureRegion(fondosTexture, 0, 512, 576, 324);
-        fondo3 = new TextureRegion(fondosTexture, 576, 512, 576, 324);
-        fondo4 = new TextureRegion(fondosTexture, 1152, 512, 576, 324);
-        fondo5 = new TextureRegion(fondosTexture, 0, 836, 576, 324);
-        fondo6 = new TextureRegion(fondosTexture, 576, 836, 576, 324);
-        fondo7 = new TextureRegion(fondosTexture, 1152, 836, 576, 324);
-        fondo8 = new TextureRegion(fondosTexture, 0, 1160, 576, 324);
-        fondo9 = new TextureRegion(fondosTexture, 576, 1160, 576, 324);
-        fondo10 = new TextureRegion(fondosTexture, 1152, 1160, 576, 324);
-        fondo11 = new TextureRegion(fondosTexture, 0, 1484, 576, 324);
-        fondo12 = new TextureRegion(fondosTexture, 576, 1484, 576, 324);
-        backgroundDay = new TextureRegion(fondosTexture, 0, 0, 288, 512);
-        base = new TextureRegion(fondosTexture, 288, 0, 336, 112);
+
+        backgroundAfternoon = new TextureRegion(fondosTexture, 960, 112, 324, 576);
+        backgroundDay = new TextureRegion(fondosTexture, 672, 112, 288, 512);
+        backgroundFutureDay = new TextureRegion(fondosTexture, 1284, 112, 325, 576);
+        backgroundFutureNight = new TextureRegion(fondosTexture, 1609, 112, 340, 576);
+        backgroundMoon = new TextureRegion(fondosTexture, 0, 688, 324, 576);
+        backgroundMoonNight = new TextureRegion(fondosTexture, 324, 688, 324, 576);
+        backgroundMorning = new TextureRegion(fondosTexture, 648, 688, 324, 576);
+        backgroundNeonSunset = new TextureRegion(fondosTexture, 972, 688, 338, 576);
+        backgroundStarWars1 = new TextureRegion(fondosTexture, 1310, 688, 324, 576);
+        backgroundStarWars2 = new TextureRegion(fondosTexture, 1634, 688, 324, 576);
+
+        base = new TextureRegion(fondosTexture, 0, 0, 336, 112);
+        baseBlue = new TextureRegion(fondosTexture, 336, 0, 336, 112);
+        baseBlueGray = new TextureRegion(fondosTexture, 672, 0, 336, 112);
+        baseMorning = new TextureRegion(fondosTexture, 1008, 0, 336, 112);
+        baseNeon = new TextureRegion(fondosTexture, 1344, 0, 336, 112);
+        baseOrange = new TextureRegion(fondosTexture, 0, 112, 336, 112);
+        baseStarWarsColors = new TextureRegion(fondosTexture, 336, 112, 336, 112);
+
         demo = new TextureRegion(fondosTexture, 624, 0, 480, 180);
 
         Texture playerTexture = manager.get("player/player.png", Texture.class);
@@ -81,18 +96,25 @@ public class AssetsManager {
         yellowbirdUp = new TextureRegion(playerTexture, 68, 225, 34, 24);
 
         Texture buttonsTexture = manager.get("Buttons/Buttons.png", Texture.class);
-        botonX = new TextureRegion(buttonsTexture, 0, 0, 201, 211);
-        botonPausa = new TextureRegion(buttonsTexture, 201, 0, 184, 222);
-        botonSeguir = new TextureRegion(buttonsTexture, 385, 0, 423, 226);
-        botonJugarDeNuevo = new TextureRegion(buttonsTexture, 0, 226, 430, 227);
-        botonSalirLetras = new TextureRegion(buttonsTexture, 430, 226, 417, 231);
-        botonSalir = new TextureRegion(buttonsTexture, 0, 457, 145, 252);
-        botonJugar = new TextureRegion(buttonsTexture, 145, 457, 755, 282);
-        botonOpciones = new TextureRegion(buttonsTexture, 0, 739, 755, 282);
-        botonMarcador = new TextureRegion(buttonsTexture, 0, 1021, 754, 287);
-        fondoPausaJuego = new TextureRegion(buttonsTexture, 754, 1021, 214, 330);
-        botonStart = new TextureRegion(buttonsTexture, 0, 1351, 214, 395);
-        botonInformacion = new TextureRegion(buttonsTexture, 214, 1351, 620, 599);
+        botonX = new TextureRegion(buttonsTexture, 0, 181, 201, 211);
+        botonPausa = new TextureRegion(buttonsTexture, 201, 181, 184, 222);
+        botonSeguir = new TextureRegion(buttonsTexture, 385, 181, 423, 226);
+        botonJugarDeNuevo = new TextureRegion(buttonsTexture, 808, 181, 430, 227);
+        botonSalirLetras = new TextureRegion(buttonsTexture, 0, 408, 417, 231);
+        botonSalir = new TextureRegion(buttonsTexture, 910, 1254, 249, 447);
+        botonJugar = new TextureRegion(buttonsTexture, 323, 685, 755, 282);
+        botonOpciones = new TextureRegion(buttonsTexture, 0, 967, 755, 282);
+        botonMarcador = new TextureRegion(buttonsTexture, 755, 967, 754, 287);
+        fondoPausaJuego = new TextureRegion(buttonsTexture, 0, 1254, 214, 330);
+        botonInformacion = new TextureRegion(buttonsTexture, 498, 1254, 412, 410);
+        botonSi = new TextureRegion(buttonsTexture, 0, 685, 323, 277);
+        botonNo = new TextureRegion(buttonsTexture, 1200, 408, 336, 277);
+        cambiarEscenario = new TextureRegion(buttonsTexture, 0, 0, 480, 145);
+        cambiarJugador = new TextureRegion(buttonsTexture, 417, 408, 783, 273);
+        cambiarTuberia = new TextureRegion(buttonsTexture, 480, 0, 599, 179);
+        mejoresPuntuacionesTitle = new TextureRegion(buttonsTexture, 1079, 0, 488, 181);
+        fondoBorrar = new TextureRegion(buttonsTexture, 1159, 1254, 340, 562);
+        iconoBasura = new TextureRegion(buttonsTexture, 214, 1254, 284, 361);
 
         Texture pipesTexture = manager.get("pipes/Pipes.png", Texture.class);
 
@@ -108,24 +130,32 @@ public class AssetsManager {
         namedPipes.put("pipe-green", pipeGreen);
     }
 
-    public static TextureRegion getBackground(int fondoIndex) {
-        switch (fondoIndex) {
-            case 1: return fondo1;
-            case 2: return fondo2;
-            case 3: return fondo3;
-            case 4: return fondo4;
-            case 5: return fondo5;
-            case 6: return fondo6;
-            case 7: return fondo7;
-            case 8: return fondo8;
-            case 9: return fondo9;
-            case 10: return fondo10;
-            case 11: return fondo11;
-            case 12: return fondo12;
-            case 13: return backgroundDay;
-            case 14: return demo;
-            case 15: return base;
-            default: return fondo1;
+    public static TextureRegion getBackgroundByName(String name) {
+        switch (name) {
+            case "background-afternoon": return backgroundAfternoon;
+            case "background-day": return backgroundDay;
+            case "background-futureday": return backgroundFutureDay;
+            case "background-futurenight": return backgroundFutureNight;
+            case "background-moon": return backgroundMoon;
+            case "background-moonnight": return backgroundMoonNight;
+            case "background-morning": return backgroundMorning;
+            case "background-neonsunset": return backgroundNeonSunset;
+            case "background-starwars1": return backgroundStarWars1;
+            case "background-starwars2": return backgroundStarWars2;
+            default: return backgroundDay;
+        }
+    }
+
+    public static TextureRegion getBaseByName(String name) {
+        switch (name) {
+            case "base": return base;
+            case "base_blue": return baseBlue;
+            case "base_blue_gray": return baseBlueGray;
+            case "base_morning": return baseMorning;
+            case "base_neon": return baseNeon;
+            case "base_orange": return baseOrange;
+            case "base_starwars_colors": return baseStarWarsColors;
+            default: return base;
         }
     }
 
@@ -137,6 +167,12 @@ public class AssetsManager {
             case "whiteSupercatDown": return whiteSupercatDown;
             case "whiteSupercatMid": return whiteSupercatMid;
             case "whiteSupercatUp": return whiteSupercatUp;
+            case "orangeSupercatDown": return orangeSupercatDown;
+            case "orangeSupercatMid": return orangeSupercatMid;
+            case "orangeSupercatUp": return orangeSupercatUp;
+            case "yellowbirdDown": return yellowbirdDown;
+            case "yellowbirdMid": return yellowbirdMid;
+            case "yellowbirdUp": return yellowbirdUp;
             case "vultureDown": return vultureDown;
             case "vultureMid": return vultureMid;
             case "vultureUp": return vultureUp;
@@ -156,11 +192,18 @@ public class AssetsManager {
             case "botonSeguir": return botonSeguir;
             case "botonSalir": return botonSalir;
             case "botonSalirLetras": return botonSalirLetras;
-            case "botonStart": return botonStart;
             case "botonInformacion": return botonInformacion;
             case "fondoPausaJuego": return fondoPausaJuego;
             case "botonX": return botonX;
             case "botonJugarDeNuevo": return botonJugarDeNuevo;
+            case "botonSi": return botonSi;
+            case "botonNo": return botonNo;
+            case "cambiarEscenario": return cambiarEscenario;
+            case "cambiarJugador": return cambiarJugador;
+            case "cambiarTuberia": return cambiarTuberia;
+            case "mejoresPuntuacionesTitle": return mejoresPuntuacionesTitle;
+            case "fondoBorrar": return fondoBorrar;
+            case "iconoBasura": return iconoBasura;
             default: return null;
         }
     }

@@ -1,17 +1,22 @@
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 eclipse.project.name = appName + '-core'
 
+ext {
+  gdxVersion = '1.12.1'
+  box2dlightsVersion = '1.5'
+  graalHelperVersion = '1.0.0'
+}
+
+
 dependencies {
-  api "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion"
+  api "com.badlogicgames.gdx:gdx:$gdxVersion"
   api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-  api "com.badlogicgames.gdx:gdx:$gdxVersion"
-  implementation "com.badlogicgames.gdx:gdx:1.10.0"
-  implementation "com.badlogicgames.gdx:gdx-backend-android:1.10.0"
-  implementation "com.badlogicgames.gdx:gdx-box2d:1.10.0"
-  implementation "com.badlogicgames.gdx:gdx-platform:1.10.0:natives-desktop"
+  api "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion"
 
-  if(enableGraalNative == 'true') {
+  if (enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
+    implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   }
 }
+
